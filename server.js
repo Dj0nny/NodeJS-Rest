@@ -5,7 +5,7 @@ app.get('/', function(req, res) {
     res.end("hello");
 });
 
-/*app.get("/get/:prova.json", function(req, res) {
+/*app.get("/get/:test.json", function(req, res) {
     res.end("Requested: " + req.params.prova);
 });*/
 
