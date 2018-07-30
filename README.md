@@ -18,6 +18,8 @@ For testing, open [Postman](https://www.getpostman.com/) and send a GET request 
 
 If everything is working fine, you should see something like this:
 
+![picture alt](https://raw.githubusercontent.com/Dj0nny/NodeJS-Rest/master/screenshot/postman1.JPG)
+
 
 
 
