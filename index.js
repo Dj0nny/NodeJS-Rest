@@ -10,14 +10,32 @@ app.use(bodyParser.json());
 
 var port = process.env.PORT || 7777;
 
-mongoose.connect("mongodb://127.0.0.1:27017");
-
+//mongoose.connect("mongodb://127.0.0.1:27017");
 
 var router = express.Router();
 
-router.get('/', function(req, res) {
-    res.json({message: "Hello world"});
+router.use(function(req, res, next) {
+    console.log("I'm here");
+    next(); 
 });
+
+router.get('/', function(req, res) {
+    res.json({message: "Hello World"});
+});
+
+
+router.route('/person')
+    .post(function(req, res) {
+        var person = new Person();
+        person.name = req.body.name;
+
+        person.save(function(err) {
+            if(err)
+                res.send(err);
+            
+            res.json({message : "Person Create"});
+        });
+    });
 
 app.use('/api', router);
 
