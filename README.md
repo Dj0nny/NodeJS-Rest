@@ -32,6 +32,7 @@ Send a request to the URL that you see using the POST method, filling the fields
 
 ### Get the Elements
 
+Send at the same URL a GET request 
 
-
+![picture alt](https://raw.githubusercontent.com/Dj0nny/NodeJS-Rest/master/screenshot/get.JPG)
 
