@@ -10,12 +10,12 @@ app.use(bodyParser.json());
 
 var port = process.env.PORT || 7777;
 
-//mongoose.connect("mongodb://127.0.0.1:27017");
+mongoose.connect("mongodb://127.0.0.1:27017");
 
 var router = express.Router();
 
 router.use(function(req, res, next) {
-    console.log("I'm here");
+    console.log("Request recived");
     next(); 
 });
 
@@ -33,12 +33,23 @@ router.route('/person')
             if(err)
                 res.send(err);
             
-            res.json({message : "Person Create"});
+            res.json({message : "Person Created"});
+        });
+    
+    })
+
+    .get(function(req, res) {
+        Person.find(function(err, person) {
+            if(err)
+                res.send(err);
+            
+            res.json(person);
         });
     });
+
+
 
 app.use('/api', router);
 
 app.listen(port);
 console.log("Server's up at " + port);
-
